@@ -96,7 +96,7 @@ class Personagem(ABC):
 
 
     def receber_dano(self, dano):
-        self.hp -= dano
+        self.__hp -= dano
         print(f'[blue]{self.nome}[/] recebeu {dano} de [red]dano[/]. [green]HP atual:[/] {self.hp}\n')
 
 
@@ -191,16 +191,6 @@ class Mago(Personagem):
         self._dict_atributo['Força'] -= 3
 
 
-    def atacar(self, alvo):
-        dano = 10
-        alvo.receber_dano(dano)
-        print(f"{self.nome}({self.hp}) Atacou {alvo.nome}")
-
-
-    def receber_dano(self):
-        pass
-
-
     def habilidade(self):
         pass
         
@@ -221,11 +211,6 @@ class Paladino(Personagem):
     def aplicar_bonus(self):
         self._dict_atributo["Força"] += 2
 
-
-    def atacar(self, alvo):
-        print(f"Atacou (em nome de Deus)")
-        
-
     
     def habilidade(self):
         pass
@@ -245,10 +230,6 @@ class Ladino(Personagem):
     def aplicar_bonus(self):
         self._dict_atributo['Agilidade'] += 3
         self._dict_atributo['Força'] -= 1
-
-
-    def atacar(self, alvo):
-        print(f"Esfaqueou")
 
 
     def habilidade(self):
@@ -337,7 +318,3 @@ def set_jogadores():
     return jogadores    
     
 
-#set_jogadores()
-essecara = Inimigo()
-matador = Mago("sika")
-matador.atacar(essecara)

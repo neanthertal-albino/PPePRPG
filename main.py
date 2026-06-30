@@ -5,7 +5,7 @@ from rich import print
 
 ini = Esqueleto()
 party = set_jogadores()
-'''
+
 inimigos = [ini]
 
-combate(party, inimigos)'''
+combate(party, inimigos)

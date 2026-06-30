@@ -4,7 +4,7 @@ from time import sleep
 
 def combate(party, inimigos):
     for jogador in party:
-        if jogador.vivo():
+        if jogador.vivo:
             jogador.atacar(inimigos[0])
             sleep(2)
 
