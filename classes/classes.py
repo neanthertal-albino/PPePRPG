@@ -6,18 +6,6 @@ from abc import ABC, abstractmethod
 Classe Base de Personagem
 ==========================
 '''
-
-class Inimigo():
-    def __init__(self):
-        self.nome = 'inimigo_de_bosta'
-        self.hp = 10
-
-
-    def receber_dano(self, dano):
-        self.hp -= dano
-        print(f'{self.nome} recebeu {dano} de dano. HP atual: {self.hp}')
-
-
 class Personagem(ABC):
     '''
     Classe Personagem base, define:
@@ -204,7 +192,6 @@ class Mago(Personagem):
 
 
     def atacar(self, alvo):
-<<<<<<< Updated upstream
         dano = 10
         alvo.receber_dano(dano)
         print(f"{self.nome}({self.hp}) Atacou {alvo.nome}")
@@ -214,12 +201,6 @@ class Mago(Personagem):
         pass
 
 
-=======
-        print(f"usando ataque mágico")
-        
-
-
->>>>>>> Stashed changes
     def habilidade(self):
         pass
         
