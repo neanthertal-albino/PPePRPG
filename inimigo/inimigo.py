@@ -26,6 +26,6 @@ class Esqueleto(Inimigo):
     
     def atacar(self, alvo):
         dano = 10
-        print(f'{self.nome}({self.hp}) atacou {alvo.nome}({alvo.hp})')
         alvo.receber_dano(dano)
+        return dano
 
