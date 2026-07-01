@@ -170,8 +170,8 @@ class Personagem(ABC):
 
     def atacar(self, alvo):
         dano = self._dict_atributo["Força"]
-        print(f"{self.nome}({self.hp}) Atacou {alvo.nome}({alvo.hp})")
         alvo.receber_dano(dano)
+        return dano
 
 
 

@@ -1,3 +1,5 @@
+from rich import print
+from classes.classes import *
 
 '''
 =============
@@ -68,3 +70,5 @@ def set_jogadores():
     return jogadores    
     
 
+def mostrar_ataque(atacante, alvo, dano):
+    print(f"{atacante.nome}({atacante.hp}) Atacou {alvo.nome}({alvo.hp})")
