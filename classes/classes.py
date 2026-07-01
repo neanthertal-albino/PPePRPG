@@ -309,8 +309,6 @@ def set_jogadores():
                 else:
                     print(f'Não existe uma classe "{escolha}"')
             
-
-            
     for j, jogador in enumerate(jogadores, start=1):
             print(f'\nJogador {j} = {jogador.nome}')
             jogador.mostrar()
