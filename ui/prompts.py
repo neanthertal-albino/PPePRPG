@@ -65,10 +65,23 @@ def set_jogadores():
             
     for j, jogador in enumerate(jogadores, start=1):
             print(f'\nJogador {j} = {jogador.nome}')
-            jogador.mostrar()
+            mostrar_personagem(jogador)
 
     return jogadores    
     
 
 def mostrar_ataque(atacante, alvo, dano):
     print(f"{atacante.nome}({atacante.hp}) Atacou {alvo.nome}({alvo.hp})")
+
+
+def mostrar_apanhar(alvo, dano):
+    print(f'[blue]{alvo.nome}[/] recebeu {dano} de [red]dano[/]. [green]HP atual:[/] {alvo.hp}\n')
+
+
+def mostrar_personagem(personagem):
+    print(f"[yellow on black]{personagem.nome}:[/]")
+    print(f'[black on yellow]{personagem.classe}:[/]')
+    for nome, valor in personagem._dict_atributo.items():
+        print(f'[blue on black]----{nome}:[/] {valor}')
+    print(f'[blue on black]----HP:[/] {personagem.hp}')
+    print(f'[blue on black]----PS:[/] {personagem.ps}')

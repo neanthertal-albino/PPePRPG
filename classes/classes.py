@@ -97,22 +97,7 @@ class Personagem(ABC):
 
     def receber_dano(self, dano):
         self.__hp -= dano
-        print(f'[blue]{self.nome}[/] recebeu {dano} de [red]dano[/]. [green]HP atual:[/] {self.hp}\n')
-
-
-    '''
-    ---------
-    DISPLAY
-    ---------
-    '''
-    def mostrar(self):
-        print(f"[yellow on black]{self.nome}:[/]")
-        print(f'[black on yellow]{self.classe}:[/]')
-        for nome, valor in self._dict_atributo.items():
-            print(f'[blue on black]----{nome}:[/] {valor}')
-        print(f'[blue on black]----HP:[/] {self.__hp}')
-        print(f'[blue on black]----PS:[/] {self.__ps}')
-
+        return dano
 
 
     '''

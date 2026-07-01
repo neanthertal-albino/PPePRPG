@@ -9,7 +9,7 @@ class Inimigo(ABC):
 
     def receber_dano(self, dano):
         self.hp -= dano
-        print(f'[yellow]{self.nome}[/] recebeu {dano} de [red]dano[/]. [green]HP atual:[/] {self.hp}\n')
+        return dano
 
 
     @abstractmethod
