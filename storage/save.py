@@ -1,7 +1,6 @@
-
 import json
  
-from classes.classes import Personagem
+from classes.classes import *
  
  
 def salvar_party(jogadores, nome_arquivo='party.json'):

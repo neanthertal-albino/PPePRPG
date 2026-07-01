@@ -1,5 +1,5 @@
 from classes.classes import *
-from classes.inimigo import *
+from inimigo.inimigo import *
 from time import sleep
 
 def combate(party, inimigos):
