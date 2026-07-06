@@ -71,11 +71,11 @@ def set_jogadores():
     
 
 def mostrar_ataque(atacante, alvo, dano):
-    print(f"{atacante.nome}({atacante.hp}) Atacou {alvo.nome}({alvo.hp})")
+    print(f"{atacante.nome}({atacante._hp}) Atacou {alvo.nome}({alvo._hp})")
 
 
 def mostrar_apanhar(alvo, dano):
-    print(f'[blue]{alvo.nome}[/] recebeu {dano} de [red]dano[/]. [green]HP atual:[/] {alvo.hp}\n')
+    print(f'[blue]{alvo.nome}[/] recebeu {dano} de [red]dano[/]. [green]HP atual:[/] {alvo._hp}\n')
 
 
 def mostrar_personagem(personagem):

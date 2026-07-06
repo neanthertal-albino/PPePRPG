@@ -18,8 +18,8 @@ class Personagem(ABC):
     def __init__(self, N):
         self.nome = N
         self.classe = '<Vagabundo>'
-        self.__hp = 0
-        self.__ps = 0
+        self._hp = 0
+        self._ps = 0
         self._dict_atributo = {
                 'Força': 0,
                 'Agilidade': 0,
@@ -96,7 +96,7 @@ class Personagem(ABC):
 
 
     def receber_dano(self, dano):
-        self.__hp -= dano
+        self._hp -= dano
         return dano
 
 
@@ -106,8 +106,8 @@ class Personagem(ABC):
     -------
     '''
     def calc_hp_ps(self):
-        self.__hp = 25 + (5 * self._dict_atributo["Força"])
-        self.__ps = 25 + (5 * self._dict_atributo["Intelecto"])
+        self._hp = 25 + (5 * self._dict_atributo["Força"])
+        self._ps = 25 + (5 * self._dict_atributo["Intelecto"])
 
     
     def total(self):
@@ -126,17 +126,17 @@ class Personagem(ABC):
     
     @property
     def vivo(self):
-        return self.__hp > 0
+        return self._hp > 0
 
 
     @property
     def hp(self):
-        return self.__hp
+        return self._hp
 
     
     @property
     def ps(self):
-        return self.__ps
+        return self._ps
 
     '''
     ---------

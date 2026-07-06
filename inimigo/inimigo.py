@@ -4,11 +4,11 @@ from abc import ABC, abstractmethod
 class Inimigo(ABC):
     def __init__(self):
         self.nome = ''
-        self.hp = 0
+        self._hp = 0
 
 
     def receber_dano(self, dano):
-        self.hp -= dano
+        self._hp -= dano
         return dano
 
 
@@ -17,11 +17,16 @@ class Inimigo(ABC):
         pass
 
 
+    @property
+    def vivo(self):
+        return self._hp > 0
+
+
 class Esqueleto(Inimigo):
     def __init__(self):
         super().__init__()
         self.nome = 'Esqueleto'
-        self.hp = 30
+        self._hp = 30
 
     
     def atacar(self, alvo):

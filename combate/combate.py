@@ -13,8 +13,9 @@ def combate(party, inimigos):
             sleep(2)
 
     for inimigo in inimigos:
-        dano = inimigo.atacar(party[0])
-        mostrar_ataque(inimigo, party[0], dano)
-        mostrar_apanhar(party[0], dano)
+        if inimigo.vivo:
+            dano = inimigo.atacar(party[0])
+            mostrar_ataque(inimigo, party[0], dano)
+            mostrar_apanhar(party[0], dano)
 
-        sleep(2)
+            sleep(2)
