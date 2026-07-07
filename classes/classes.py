@@ -119,8 +119,8 @@ class Personagem(ABC):
             'nome': self.nome,
             'classe': self.classe,
             'atributos': self._dict_atributo,
-            'hp': self._Personagem__hp,
-            'ps': self._Personagem__ps
+            'hp': self._hp,
+            'ps': self._ps
         }
 
     
@@ -175,6 +175,9 @@ class Mago(Personagem):
         self._dict_atributo["Intelecto"] += 4
         self._dict_atributo['Força'] -= 3
 
+        for atributo in self._dict_atributo:
+            self._dict_atributo[atributo] = max(0, self._dict_atributo[atributo])
+
 
     def habilidade(self):
         pass
@@ -196,6 +199,9 @@ class Paladino(Personagem):
     def aplicar_bonus(self):
         self._dict_atributo["Força"] += 2
 
+        for atributo in self._dict_atributo:
+            self._dict_atributo[atributo] = max(0, self._dict_atributo[atributo])
+
     
     def habilidade(self):
         pass
@@ -215,6 +221,9 @@ class Ladino(Personagem):
     def aplicar_bonus(self):
         self._dict_atributo['Agilidade'] += 3
         self._dict_atributo['Força'] -= 1
+
+        for atributo in self._dict_atributo:
+            self._dict_atributo[atributo] = max(0, self._dict_atributo[atributo])
 
 
     def habilidade(self):

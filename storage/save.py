@@ -31,8 +31,8 @@ def carregar_party(nome_arquivo='party.json'):
         # abstrata diretamente — isso é o que causava o TypeError.
         p = classe_concreta(j["nome"])
         p._dict_atributo = j["atributos"]
-        p._Personagem__hp = j["hp"]
-        p._Personagem__ps = j["ps"]
+        p._hp = j["hp"]
+        p._ps = j["ps"]
  
         jogadores.append(p)
  
