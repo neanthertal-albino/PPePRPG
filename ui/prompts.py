@@ -83,5 +83,5 @@ def mostrar_personagem(personagem):
     print(f'[black on yellow]{personagem.classe}:[/]')
     for nome, valor in personagem._dict_atributo.items():
         print(f'[blue on black]----{nome}:[/] {valor}')
-    print(f'[blue on black]----HP:[/] {personagem.hp}')
-    print(f'[blue on black]----PS:[/] {personagem.ps}')
+    print(f'[blue on black]----HP:[/] {personagem._hp}')
+    print(f'[blue on black]----PS:[/] {personagem._ps}')
