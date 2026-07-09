@@ -21,6 +21,10 @@ class Inimigo(ABC):
     def vivo(self):
         return self._hp > 0
 
+    @property
+    def hp(self):         
+        return self._hp
+
 
 class Esqueleto(Inimigo):
     def __init__(self):

@@ -82,9 +82,7 @@ class Personagem(ABC):
                         break
 
                     else:
-                        are_you_sure = input('\nAcho que houve um ERRO de digitação (continuar): [SIM/NAO] ').upper().strip()
-
-                
+                        are_you_sure = input('\nAcho que houve um ERRO de digitação (continuar): [SIM/NAO] ').upper().strip()               
 
 
     def rezet(self):
