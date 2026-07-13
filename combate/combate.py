@@ -9,22 +9,33 @@ def combate(party, inimigos):
             if not jogador.vivo:
                 continue
 
-            dano = jogador.atacar(inimigos[0])
+            escolha = perguntar_acao(jogador)
+
+            if escolha == 'atacar':
+                dano = jogador.atacar(inimigos[0])
+            else:
+                resultado = jogador.habilidade(inimigos[0])
+                if resultado is None:
+                    print('[yellow]PS insuficiente! Ataque cancelado.[/]')
+                    continue
+
+                dano, critico = resultado
+                show_test_skill(critico)
+
             mostrar_ataque(jogador, inimigos[0], dano)
             mostrar_apanhar(inimigos[0], dano)
 
             sleep(2)
-            
 
-        for inimigo in inimigos:
-            if not inimigo.vivo:
-                continue
-            
-            dano = inimigo.atacar(party[0])
-            mostrar_ataque(inimigo, party[0], dano)
-            mostrar_apanhar(party[0], dano)
+            for inimigo in inimigos:              
+                if not inimigo.vivo:
+                    continue
 
-            sleep(2)
+                dano = inimigo.atacar(party[0])
+                mostrar_ataque(inimigo, party[0], dano)
+                mostrar_apanhar(party[0], dano)
+
+                sleep(2)
 
         if not any(jogador.vivo for jogador in party):
             print('PERDEU! todos os jogadores foram eliminados.')

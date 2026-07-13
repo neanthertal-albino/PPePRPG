@@ -1,5 +1,6 @@
 from rich import print
 from classes.classes import *
+from time import sleep
 
 '''
 =============
@@ -90,7 +91,7 @@ def mostrar_personagem(personagem):
 def perguntar_acao(personagem):
     print(f'\n[cyan]Turno de {personagem.nome}[/] (PS: {personagem.ps})')
     print('1 - Atacar')
-    print('2 - Usar habilidade')
+    print('2 - Usar habilidade (custa - 8)')
 
     while True:
         escolha = input('Escolha: ').strip()
@@ -101,3 +102,20 @@ def perguntar_acao(personagem):
             return 'habilidade'
         else:
             print('[red]Opção inválida.[/] Digite 1 ou 2.')
+
+
+def tension():
+    print('...')
+    sleep(1)
+    print('...')
+    sleep(1)
+    print('...')
+    sleep(2)
+
+
+def show_test_skill(critico):
+    tension()
+    if critico:
+         print('[yellow]TESTE FEITO COM SUCESSO![/]')
+    else:
+        print('[yellow]TESTE [red]FALHOU![/]')

@@ -225,8 +225,8 @@ class Ladino(Personagem):
             self._dict_atributo[atributo] = max(0, self._dict_atributo[atributo])
 
 
-    def habilidade(self):
-        custo_ps = 10
+    def habilidade(self, alvo):
+        custo_ps = 8
 
         if self._ps < custo_ps:
             return None
@@ -236,8 +236,13 @@ class Ladino(Personagem):
 
             dano = self._dict_atributo["Força"]
 
-            if random.random() <= chance_critico:
-                dano *= 2
+            critico = random.random() <= chance_critico
+
+            if critico:
+                dano *= 2          
+            
+            alvo.receber_dano(dano)
+            return dano, critico
 
 
 
