@@ -85,3 +85,19 @@ def mostrar_personagem(personagem):
         print(f'[blue on black]----{nome}:[/] {valor}')
     print(f'[blue on black]----HP:[/] {personagem.hp}')
     print(f'[blue on black]----PS:[/] {personagem.ps}')
+
+
+def perguntar_acao(personagem):
+    print(f'\n[cyan]Turno de {personagem.nome}[/] (PS: {personagem.ps})')
+    print('1 - Atacar')
+    print('2 - Usar habilidade')
+
+    while True:
+        escolha = input('Escolha: ').strip()
+
+        if escolha == '1':
+            return 'atacar'
+        elif escolha == '2':
+            return 'habilidade'
+        else:
+            print('[red]Opção inválida.[/] Digite 1 ou 2.')

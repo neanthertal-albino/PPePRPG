@@ -1,4 +1,5 @@
 from rich import print
+import random
 from abc import ABC, abstractmethod
 
 '''
@@ -225,7 +226,20 @@ class Ladino(Personagem):
 
 
     def habilidade(self):
-        pass
+        custo_ps = 10
+
+        if self._ps < custo_ps:
+            return None
+        else:
+            self._ps -= custo_ps
+            chance_critico = self._dict_atributo['Agilidade'] / 10
+
+            dano = self._dict_atributo["Força"]
+
+            if random.random() <= chance_critico:
+                dano *= 2
+
+
 
 
 
