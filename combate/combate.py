@@ -1,6 +1,7 @@
 from classes.classes import *
 from inimigo.inimigo import *
 from ui.prompts import *
+from storage.save import salvar_estado, deletar_save
 from time import sleep
 
 def combate(party, inimigos):
@@ -10,6 +11,10 @@ def combate(party, inimigos):
                 continue
 
             escolha = perguntar_acao(jogador)
+
+            if escolha == 'salvar':
+                salvar_estado(party, inimigos)
+                return 'salvo'
 
             if escolha == 'atacar':
                 dano = jogador.atacar(inimigos[0])
@@ -39,8 +44,10 @@ def combate(party, inimigos):
 
         if not any(jogador.vivo for jogador in party):
             print('PERDEU! todos os jogadores foram eliminados.')
-            break
+            deletar_save()
+            return 'derrota'
 
         if not any(inimigo.vivo for inimigo in inimigos):
             print('HELL YEAH! todos os inimigos foram eliminados.')
-            break
+            deletar_save()
+            return 'vitoria'
