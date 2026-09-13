@@ -178,9 +178,24 @@ class Mago(Personagem):
             self._dict_atributo[atributo] = max(0, self._dict_atributo[atributo])
 
 
-    def habilidade(self):
-        pass
-        
+    def habilidade(self, alvo):
+        custo_ps = 8
+
+        if self._ps < custo_ps:
+            return None
+        else:
+            self._ps -= custo_ps
+            chance_critico = self._dict_atributo['Intelecto'] / 10
+
+            dano = self._dict_atributo["Intelecto"]
+
+            critico = random.random() <= chance_critico
+
+            if critico:
+                dano *= 2
+
+            alvo.receber_dano(dano)
+            return dano, critico
 
 
 '''
@@ -191,19 +206,32 @@ CLASSE PALADINO
 class Paladino(Personagem):
     def __init__(self, nome):
         super().__init__(nome)
-        self._dict_atributo['Força'] += 2
         self.classe = '<Paladino>'
 
 
     def aplicar_bonus(self):
-        self._dict_atributo["Força"] += 2
+        self._dict_atributo["Força"] += 4
 
         for atributo in self._dict_atributo:
             self._dict_atributo[atributo] = max(0, self._dict_atributo[atributo])
 
     
-    def habilidade(self):
-        pass
+    def habilidade(self, alvo):
+        custo_ps = 8
+
+        if self._ps < custo_ps:
+            return None
+        else:
+            self._ps -= custo_ps
+            dano = self._dict_atributo["Força"]
+            cura = dano // 2
+
+            alvo.receber_dano(dano)
+            self._hp += cura
+
+            print(f'[yellow]{self.nome} invoca a luz sagrada e se cura em {cura} de HP![/]')
+
+            return dano, True
 
 
 '''
