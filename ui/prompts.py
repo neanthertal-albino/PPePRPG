@@ -92,7 +92,6 @@ def perguntar_acao(personagem):
     print(f'\n[cyan]Turno de {personagem.nome}[/] (PS: {personagem.ps})')
     print('1 - Atacar')
     print('2 - Usar habilidade (custa - 8)')
-    print('3 - Salvar e sair')
 
     while True:
         escolha = input('Escolha: ').strip()
@@ -101,32 +100,25 @@ def perguntar_acao(personagem):
             return 'atacar'
         elif escolha == '2':
             return 'habilidade'
-        elif escolha == '3':
-            return 'salvar'
         else:
-            print('[red]Opção inválida.[/] Digite 1, 2 ou 3.')
+            print('[red]Opção inválida.[/] Digite 1 ou 2.')
 
 
-'''
-============
-MENU INICIAL
-============
-'''
-def menu_inicial(tem_save):
-    print('[bold yellow]=== PPePRPG ===[/]\n')
-    print('1 - Novo jogo')
-    if tem_save:
-        print('2 - Carregar save')
+def escolher_alvo(inimigos):
+    if len(inimigos) == 1:
+        return inimigos[0]
+
+    print('\n[cyan]Escolha o alvo:[/]')
+    for idx, inimigo in enumerate(inimigos, start=1):
+        print(f'{idx} - {inimigo.nome} (HP: {inimigo.hp})')
 
     while True:
-        escolha = input('Escolha: ').strip()
+        escolha = input('> ').strip()
 
-        if escolha == '1':
-            return 'novo'
-        elif escolha == '2' and tem_save:
-            return 'carregar'
-        else:
-            print('[red]Opção inválida.[/]')
+        if escolha.isdigit() and 1 <= int(escolha) <= len(inimigos):
+            return inimigos[int(escolha) - 1]
+
+        print('[red]Opção inválida.[/]')
 
 
 def tension():
