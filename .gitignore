@@ -2,3 +2,4 @@ PPePRPG.zip
 __pycache__/
 *.pyc
 party.json
+save.json
