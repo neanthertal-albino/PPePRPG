@@ -4,6 +4,43 @@ from time import sleep
 
 '''
 =============
+MENU INICIAL
+=============
+'''
+def menu_inicial(tem_save):
+    print('[bold cyan]=== PPePRPG ===[/]')
+    print('[yellow]Um RPG de terminal em Python[/]\n')
+
+    if tem_save:
+        print('Existe um jogo salvo.')
+        print('1 - Continuar')
+        print('2 - Novo jogo')
+
+        while True:
+            escolha = input('Escolha: ').strip()
+
+            if escolha == '1':
+                return 'carregar'
+            elif escolha == '2':
+                return 'novo'
+            else:
+                print('[red]Opção inválida.[/] Digite 1 ou 2.')
+
+    else:
+        print('Nenhum jogo salvo encontrado.')
+        print('1 - Novo jogo')
+
+        while True:
+            escolha = input('Escolha: ').strip()
+
+            if escolha == '1':
+                return 'novo'
+            else:
+                print('[red]Opção inválida.[/] Digite 1.')
+
+
+'''
+=============
 SET JOGADORES
 =============
 '''
